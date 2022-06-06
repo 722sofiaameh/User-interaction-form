@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Story-Container</title>
+    <link rel="stylesheet" href="java.css">
+    
+</head>
+<body>
+  <div class="error">
+  <div id="error"></div>
+  </div>
+  <div class="container">
+    <div class="form">
+    <form id="form">
+      <label for="First Name" value="fname">First-Name:</label>
+      <input type="text" class="first-name" id="fname" placeholder="First-name" >
+       <br>
+      <label for="Middle-Name" value="mname">Middle-Name:</label>
+      <input type="text" class="middle-name" id="mname" placeholder="Middle-Name"  >
+<br>
+      <label for="Last-name" value="lname">Last-Name:</label>
+      <input type="text" class="last-name" id="lname" placeholder="Last-Name"  >
+  <br>
+    <label for="Age"  value="number">Age:</label>
+      <input type="number" class="number" id="number" placeholder="Enter your Age" >
+  <br>
+    <label for="Address" value="Address">Address:</label>
+      <input type="text" class="Address" id="Address" placeholder="Enter Your Address" >
+     <br>
+      <label for="Favourite-color" value="fcolor">Favourite-color:</label>
+    <input type="text" class="color" id="fcolor" placeholder="Enter favourite color!" >
+  
+    <button type="submit" value="submit">Tell My Story</button>
+    </form>
+  </div>
+  </div>
+  <div class="story-container">
+    <div id="story"></div>
+  </div>
+
+  
+  <script>
+    let form = document.querySelector('#form')
+
+form.addEventListener ('submit',(e) => {
+    e.preventDefault() 
+    console.log("submitted");
+    let fname = document.getElementById("fname").value;
+    let mname = document.getElementById("mname").value;
+    let lname = document.getElementById("lname").value;
+    let age = document.getElementById("number").value;
+    let address = document.getElementById("Address").value;
+    let fcolor = document.getElementById("fcolor").value;
+    let error = document.querySelector('#error')
+    let story = document.querySelector('#story')
+    
+    if (!fname && !mname && !lname && !age && !address && !fcolor ){
+        error.innerHTML = "ERROR MESSAGE : ERROR ERROR ERROR!!! Please fill in your details to access your story below..";
+        setTimeout(() => error.remove(),3000)
+    }
+    else {
+        let myStory = `Dear ${fname} ${mname} ${lname} you are so amazing,loving and sweet,you are ${age}years old and such a genius!,you live at ${address} and your favourite color is ${fcolor} I'm sure I got that right yea??,keep being so adorable,${fname} Never lose sight of who you are always keep pushing to be better!! `;
+    
+        story.innerHTML = myStory
+        
+      }
+
+    
+   
+  })
+  </script>
+</body>
+</html>
